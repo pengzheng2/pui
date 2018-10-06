@@ -197,7 +197,7 @@ p {
   background-size: cover;
 }
 
-.product-tile h1, h2, p {
+.product-tile h1, .product-tile h2, .product-tile p {
   margin-left: 5rem;
 }
 
