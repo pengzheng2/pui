@@ -466,3 +466,7 @@ p {
   box-sizing: border-box;
   margin-right: 0;
 }
+
+.whitebox {
+  height: 100px;
+}
