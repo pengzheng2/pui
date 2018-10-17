@@ -48,6 +48,12 @@ $(document).on("click", ".delete-item", function() {
 $(document).on("click", "#add-item", function() {
     var list = $("#grocery-list");
     var itemInput = $("#new-list-item");
+    list.append("<li><input type='checkbox' class='complete-item'>" + itemInput.val() + " <button class='delete-item'>X</button></li>");
+});
+
+$(document).on("click", "#completeListItem", function() {
+    var list = $("#grocery-list");
+    var itemInput = $("#new-list-item");
     list.append("<li>" + itemInput.val() + " <button class='delete-item'>X</button></li>");
 });
 
