@@ -313,6 +313,14 @@ p {
   margin-bottom: 12px;
 }
 
+.spec-color-option1:hover,
+.spec-color-option2:hover,
+.spec-color-option3:hover,
+.spec-color-option4:hover {
+ border: 1.5px solid black;
+ box-shadow: inset 0px 0px 0px .5px black;
+}
+
 .color-swatch {
   width: 44px;
   height: 20px;
@@ -362,6 +370,13 @@ p {
   display: flex;
   align-items: center;
   margin-bottom: 12px;
+}
+
+.spec-fill-option1:hover,
+.spec-fill-option2:hover,
+.spec-fill-option3:hover {
+ border: 1.5px solid black;
+ box-shadow: inset 0px 0px 0px .5px black;
 }
 
 .fill-options .name {
@@ -447,7 +462,7 @@ p {
   margin-left: auto;
 }
 
-.button-regular {
+.btn-regular {
   width: 140px;
   height: 40px;
   background-color: rgba(255,255,255,1);
@@ -464,9 +479,75 @@ p {
   letter-spacing: 0.8px;
   line-height: 1.2;
   box-sizing: border-box;
+  margin-right: 0px;
+}
+
+.btn-regular:hover {
+  background-color: black;
+  color: white;
+}
+
+.item-quantity {
+  color: black;
+  font-family: "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman", 'TeXGyreHerosRegular', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif; font-weight:400; font-stretch:normal;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  line-height: 1.2;
   margin-right: 0;
+}
+
+.number {
+  font-family: 'Roboto Mono', monospace;
 }
 
 .whitebox {
   height: 100px;
+}
+
+
+/*Shopping Cart Page*/
+
+.shopping-cart-header h1 {
+  margin-top: 100px;
+  margin-bottom: 60px;
+}
+
+.item {
+  margin-bottom: 60px;
+  display: flex;
+  -ms-align-items: flex-end;
+  align-items: flex-end;
+}
+
+.item-img {
+  width: 160px;
+  height: 100px;
+  border-radius: 8px;
+  overflow: visible;
+  background-image: url("https://i.imgur.com/wmmHImI.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: inline-block;
+  margin-right: 60px;
+}
+
+.item-info {
+  height: 100px;
+}
+
+.item-name {
+  margin-bottom: 34px;
+}
+
+.item-options .title {
+  text-align: left;
+  padding-bottom: 14px;
+  width: 200px;
+}
+
+.item .btn-regular:hover {
+  background-color: black;
+  color: white;
 }
