@@ -71,6 +71,9 @@ $(document).ready(function() {
 	$('#itemNumber').html(countCart());
 });
 
+var userNameSelection = $('h2').text();
+localStorage.setItem( 'userNameSelection', userNameSelection );
+var nameSelection = localStorage.getItem( 'userNameSelection' );
 var colorSelection = localStorage.getItem( 'userColorSelection' );
 var fillSelection = localStorage.getItem( 'userFillSelection' );
 
@@ -81,7 +84,7 @@ $('#add-to-cart').click(function(event) {
 	if (userColorSelection && userFillSelection) {
 		var colorSelection = localStorage.getItem( 'userColorSelection' );
 		var fillSelection = localStorage.getItem( 'userFillSelection' );
-		var name = 'Couch Pillow'; // 取到所点击的商品名称
+		var name = nameSelection; // 取到所点击的商品名称
 		var color = colorSelection; // 取所选商品的颜色
 		var fill = fillSelection; // 取所选商品的 fill
 		addItemToCart(name, color, fill, 14.25, 1); // 添加进 cart array
@@ -102,9 +105,8 @@ function displayCart() { // 把 cart array 写进 HTML
 	var output = ""; // 更新后的 cartArray，默认为空
 	for (var i in cartArray) { // 循环 cart 里的新每个 item 的属性并更新到 output array 里
 		output += "<div class='item'>\
-			<div class='item-img'></div>\
 			<div class='item-info'>\
-				<div class='item-name'>Couch Pillow</div>\
+				<div class='item-name'>" + cartArray[i].name + "</div>\
 				<table style='width:100%' class='item-options'>\
 				  <tr>\
 				    <th class='title'>Color</th>\
@@ -151,7 +153,7 @@ var Item = function(name, color, fill, price, count) {
 
 function addItemToCart(name, color, fill, price, count) {
 	for (var i in cart) {
-		if (cart[i].color === color && cart[i].fill === fill) {
+		if (cart[i].name === name && cart[i].color === color && cart[i].fill === fill) {
 			cart[i].count += count;
 			saveCart();
 			return; // 到这会停止 function，所以 saveCart() 在此之前要写一遍，之后要写一遍
