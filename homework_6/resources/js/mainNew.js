@@ -1,4 +1,4 @@
-// 读用户颜色和 fill 的选择
+// Get user's choice for product name, color and fill
 var userColorSelection = false;
 var userFillSelection = false;
 
@@ -78,7 +78,7 @@ var colorSelection = localStorage.getItem( 'userColorSelection' );
 var fillSelection = localStorage.getItem( 'userFillSelection' );
 
 // ***********************************************************************************************************************
-// 更新 array
+// Update shopping cart array
 
 $('#add-to-cart').click(function(event) {
 	if (userColorSelection && userFillSelection) {
@@ -100,10 +100,10 @@ $('#clear-cart').click(function(event) {
 	displayCart();
 });
 
-function displayCart() { // 把 cart array 写进 HTML
-	var cartArray = listCart(); // 把最新的 cart 情况赋值给 cartArray
-	var output = ""; // 更新后的 cartArray，默认为空
-	for (var i in cartArray) { // 循环 cart 里的新每个 item 的属性并更新到 output array 里
+function displayCart() { // dis play shopping cart array
+	var cartArray = listCart();
+	var output = "";
+	for (var i in cartArray) {
 		output += "<div class='item'>\
 			<div class='item-info'>\
 				<div class='item-name'>" + cartArray[i].name + "</div>\
@@ -125,11 +125,11 @@ function displayCart() { // 把 cart array 写进 HTML
 			<div class='btn-regular delete-item' data-color='"+cartArray[i].color+"' data-fill='"+cartArray[i].fill+"'>Delete</div>\
 		</div>"
 	}
-	$('#shopping-cart-content').html(output); // 把 output 的 HTML 文本加到 .show-cart 的 ul 里，并覆盖原来的内容
-	$('#total-cart').html( totalCost() ) // 显示当前 cart 内总价值
+	$('#shopping-cart-content').html(output);
+	$('#total-cart').html( totalCost() );
 }
 
-$('#shopping-cart-content').on('click', '.delete-item', function(event) { // click 之后，去找 show-cart 元素的子级有没有叫 .delete-item 的，有的话执行 function
+$('#shopping-cart-content').on('click', '.delete-item', function(event) {
 	var color = $(this).attr('data-color');
 	var fill = $(this).attr('data-fill');
 	console.log(color);
@@ -156,10 +156,10 @@ function addItemToCart(name, color, fill, price, count) {
 		if (cart[i].name === name && cart[i].color === color && cart[i].fill === fill) {
 			cart[i].count += count;
 			saveCart();
-			return; // 到这会停止 function，所以 saveCart() 在此之前要写一遍，之后要写一遍
+			return;
 		}
 	}
-	var item = new Item(name, color, fill, price, count); // 名字不一样的产品加新 Item object 进 array
+	var item = new Item(name, color, fill, price, count);
 	cart = cart || [];
 	cart.push(item);
 	saveCart();
@@ -211,7 +211,7 @@ function totalCost () { // Return total cost
 	return totalCost.toFixed(2);
 }
 
-function listCart() { // Display the cart in the console 在后台真正实时更新 cart array，但因为 JS 直接赋值 array 都是 reference 回原来的，所以重新跑一遍 object 和每个 object 的属性，生成一个最新的 cartCopy
+function listCart() { // Display the cart in the console
 	var cartCopy = [];
 	for (var i in cart) {
 		var item = cart[i];
