@@ -84,12 +84,12 @@ $('#add-to-cart').click(function(event) {
 	if (userColorSelection && userFillSelection) {
 		var colorSelection = localStorage.getItem( 'userColorSelection' );
 		var fillSelection = localStorage.getItem( 'userFillSelection' );
-		var name = nameSelection; // 取到所点击的商品名称
-		var color = colorSelection; // 取所选商品的颜色
-		var fill = fillSelection; // 取所选商品的 fill
-		addItemToCart(name, color, fill, 14.25, 1); // 添加进 cart array
+		var name = nameSelection; // get product name
+		var color = colorSelection; // get product color
+		var fill = fillSelection; // get product fill
+		addItemToCart(name, color, fill, 14.25, 1); // add item to cart array
 		$('#itemNumber').html(countCart());
-		displayCart(); // call displayCart 函数显示目前购物车
+		displayCart(); // call displayCart
 	} else {
 		alert('Please select a color and a fill.');
 	}
@@ -117,7 +117,10 @@ function displayCart() { // dis play shopping cart array
 				  <tr>\
 				    <td class='item-color'>" + cartArray[i].color + "</td>\
 				    <td class='item-fill'>" + cartArray[i].fill + "</td>\
-				    <td class='item-fill'>" + cartArray[i].count + "</td>\
+				    <td class='item-qty'>" +
+				    	"<button class='substract-item' data-name='"+cartArray[i].name+"' data-color='"+cartArray[i].color+"' data-fill='"+cartArray[i].fill+"'>-</button>"
+				    	 + " " + cartArray[i].count + " " +
+				    	"<button class='plus-item' data-name='"+cartArray[i].name+"' data-color='"+cartArray[i].color+"' data-fill='"+cartArray[i].fill+"'>+</button>" + "</td>\
 				    <td class='item-price'> $14.25 </td>\
 				  </tr>\
 				</table>\
@@ -129,11 +132,27 @@ function displayCart() { // dis play shopping cart array
 	$('#total-cart').html( totalCost() );
 }
 
+$('#shopping-cart-content').on('click', '.substract-item', function(event) {
+	var name = $(this).attr('data-name');
+	var color = $(this).attr('data-color');
+	var fill = $(this).attr('data-fill');
+	console.log(name, color, fill);
+	removeItemFromCart(name, color, fill);
+	displayCart();
+});
+
+$('#shopping-cart-content').on('click', '.plus-item', function(event)  {
+	var name = $(this).attr('data-name');
+	var color = $(this).attr('data-color');
+	var fill = $(this).attr('data-fill');
+	console.log(name, color, fill);
+	addItemFromCart(name, color, fill);
+	displayCart();
+});
+
 $('#shopping-cart-content').on('click', '.delete-item', function(event) {
 	var color = $(this).attr('data-color');
 	var fill = $(this).attr('data-fill');
-	console.log(color);
-	console.log(fill);
 	removeItemFromCartAll(color, fill);
 	displayCart();
 });
@@ -165,13 +184,23 @@ function addItemToCart(name, color, fill, price, count) {
 	saveCart();
 };
 
-function removeItemFromCart(name) { // Removes one item
+function removeItemFromCart(name, color, fill) { // Removes one item
 	for (var i in cart) {
-		if (cart[i].name === name) {
+		if (cart[i].name === name && cart[i].color === color && cart[i].fill === fill) {
 			cart[i].count --;
 			if (cart[i].count === 0) {
 				cart.splice(i, 1);
 			}
+			break;
+		}
+	}
+	saveCart();
+}
+
+function addItemFromCart(name, color, fill) { // Adds one item
+	for (var i in cart) {
+		if (cart[i].name === name && cart[i].color === color && cart[i].fill === fill) {
+			cart[i].count ++;
 			break;
 		}
 	}
@@ -235,3 +264,14 @@ function loadCart () {// Retrive info from local storage
 
 loadCart();
 displayCart();
+
+
+// ************************************************************************
+// Add carousel
+
+// $('.carousel').slick({
+//   infinite: true,
+//   slidesToShow: 3,
+//   slidesToScroll: 3
+// });
+
