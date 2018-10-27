@@ -191,6 +191,7 @@ $('#shopping-cart-content').on('click', '.substract-item', function(event) {
 	var fill = $(this).attr('data-fill');
 	console.log(name, color, fill);
 	removeItemFromCart(name, color, fill);
+	$('#itemNumber').html(countCart());
 	displayCart();
 });
 
@@ -200,6 +201,7 @@ $('#shopping-cart-content').on('click', '.plus-item', function(event)  {
 	var fill = $(this).attr('data-fill');
 	console.log(name, color, fill);
 	addItemFromCart(name, color, fill);
+	$('#itemNumber').html(countCart());
 	displayCart();
 });
 
