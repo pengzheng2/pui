@@ -322,9 +322,13 @@ displayCart();
 // ************************************************************************
 // Add carousel
 
-// $('.carousel').slick({
-//   infinite: true,
-//   slidesToShow: 3,
-//   slidesToScroll: 3
-// });
-
+$(document).ready(function(){
+    $("#scroll_left").click(function(){
+    	var leftPos = $('.carousel_container').scrollLeft();
+        $(".carousel_container").animate({scrollLeft: leftPos - 300}, 800);
+    });
+    $("#scroll_right").click(function(){
+    	var leftPos = $('.carousel_container').scrollLeft();
+        $(".carousel_container").animate({scrollLeft: leftPos + 300}, 800);
+    });
+});
