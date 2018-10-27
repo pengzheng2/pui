@@ -68,6 +68,59 @@ $(document).ready(function() {
 		userFillSelection = true;
 	});
 
+	// change item image according to user selection
+	$('#cp_option1').click(function() {
+		$('.detail-banner').css('background-image', 'url("https://i.imgur.com/wmmHImI.jpg")');
+	});
+	$('#cp_option2').click(function() {
+		$('.detail-banner').css('background-image', 'url("https://i.imgur.com/LVTGhSv.png")');
+	});
+	$('#cp_option3').click(function() {
+		$('.detail-banner').css('background-image', 'url("https://i.imgur.com/cEagDQ5.png")');
+	});
+	$('#cp_option4').click(function() {
+		$('.detail-banner').css('background-image', 'url("https://i.imgur.com/t9YmUbm.png")');
+	});
+
+	$('#rp_option1').click(function() {
+		$('.detail-banner').css('background-image', 'url("https://i.imgur.com/f5WB4Za.png")');
+	});
+	$('#rp_option2').click(function() {
+		$('.detail-banner').css('background-image', 'url("https://i.imgur.com/HrLPkZi.png")');
+	});
+	$('#rp_option3').click(function() {
+		$('.detail-banner').css('background-image', 'url("https://i.imgur.com/DgiQjP7.jpg")');
+	});
+	$('#rp_option4').click(function() {
+		$('.detail-banner').css('background-image', 'url("https://i.imgur.com/gfiA3Q4.png")');
+	});
+
+	$('#bp_option1').click(function() {
+		$('.detail-banner').css('background-image', 'url("https://i.imgur.com/ll7pY9h.png")');
+	});
+	$('#bp_option2').click(function() {
+		$('.detail-banner').css('background-image', 'url("https://i.imgur.com/B7ITyFR.png")');
+	});
+	$('#bp_option3').click(function() {
+		$('.detail-banner').css('background-image', 'url("https://i.imgur.com/r8roSIj.png")');
+	});
+	$('#bp_option4').click(function() {
+		$('.detail-banner').css('background-image', 'url("https://i.imgur.com/IxFt0nB.png")');
+	});
+
+	$('#fpp_option1').click(function() {
+		$('.detail-banner').css('background-image', 'url("https://i.imgur.com/XuNF16k.png")');
+	});
+	$('#fpp_option2').click(function() {
+		$('.detail-banner').css('background-image', 'url("https://i.imgur.com/1sZHL93.png")');
+	});
+	$('#fpp_option3').click(function() {
+		$('.detail-banner').css('background-image', 'url("https://i.imgur.com/b33gMU5.png")');
+	});
+	$('#fpp_option4').click(function() {
+		$('.detail-banner').css('background-image', 'url("https://i.imgur.com/t1LxWAg.png")');
+	});
+
 	$('#itemNumber').html(countCart());
 });
 
