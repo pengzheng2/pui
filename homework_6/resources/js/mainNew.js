@@ -210,6 +210,7 @@ $('#shopping-cart-content').on('click', '.delete-item', function(event) {
 	var fill = $(this).attr('data-fill');
 	removeItemFromCartAll(color, fill);
 	displayCart();
+	$('#itemNumber').html(countCart());
 });
 
 // **************************************************************************************************************************************

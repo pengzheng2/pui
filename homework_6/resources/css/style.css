@@ -759,8 +759,9 @@ p {
   display:inline-flex;
   margin-left: 50px;
   margin-right: 50px;
-  overflow: scroll;
+  overflow: hidden;
   width: 800px;
+  padding-bottom: 30px;
 }
 
 .carousel_item {
