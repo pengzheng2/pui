@@ -2,6 +2,9 @@
 @import "colors.css";
 @import "typography.css";
 
+
+/* Index CSS */
+
 /* Navigation */
 .navbar .container {
 	margin-top: 1.5rem;
@@ -37,34 +40,6 @@
 	margin-bottom: 8rem;
 }
 
-/* Content toggle*/
-/*input[type="checkbox"] {
-	position: relative;
-	width: 22.5rem;
-	height: 4rem;
-	-webkit-appearance: none;
-	background: var(--color-gray-100);
-	outline: none;
-	border-radius: 12px;
-	transition: .5s;
-}
-input:checked[type="checkbox"] {
-	background: var(--color-gray-200); 
-}
-input[type="checkbox"]:before {
-	content: '1212'; 
-	position: relative;
-	top: 0.5rem;
-	left: 0.5rem;
-	width: 10.25rem;
-	height: 3rem;	
-	background: var(--color-gray-200); 
-	border-radius: 8px;
-	transition: .5s;
-}
-input:checked[type="checkbox"]:before {
-	left: 10rem;
-}*/
 .box {
 	margin-bottom: 5rem;
 }
@@ -108,13 +83,15 @@ input:checked[type="checkbox"]:before {
 	box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.25);
 	border-radius: 12px;
 	margin-bottom: 2rem;
+	transition: all 0.2s ease-out;
 }
 
 .content img:hover {
 	box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.25);
 	border-radius: 12px;
 	margin-bottom: 2rem;
-	transition: box-shadow 0.5s;
+	transition: all 0.2s ease-out;
+	transform: scale(0.98);
 }
 
 .content p {
@@ -130,4 +107,223 @@ footer .peng{
 /* Prevent Flickering  */
 html.sr .load-hidden {
     visibility: hidden;
+}
+
+/* Subpage CSS */
+
+/* Background */
+
+.bg{
+	position: absolute;
+}
+
+.graybg {
+	width: 
+	margin-left: 0;
+	background-color: var(--color-gray-100);
+}
+
+.sub-page .img-fluid {
+	margin-top: 5rem;
+	box-shadow: -6px 20px 40px rgba(0, 0, 0, 0.25);
+	border-radius: 18px;
+	transition: all 0.2s ease-out;
+	transform: perspective(800px) rotateY(12deg) rotateX(6deg);
+	margin-bottom: 3rem;
+}
+
+.sub-page .img-fluid:hover {
+	box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.25);
+	border-radius: 18px;
+	transition: all 0.4s ease-out;
+	transform: scale(0.98);
+}
+
+.sub-page h3 {
+	margin-top: 5rem;
+}
+
+.subhead:last-child {
+	margin-bottom: 3rem;
+}
+/* Subscribe */
+
+.app {
+	display: flex;
+	border-radius: 12px;
+	align-items: center;
+	margin-top: 0.5rem;
+	transition: 0.25s;
+}
+
+.app:hover {
+	background: #E4E7E9;
+	cursor: pointer;
+	transition: 0.25s;
+}
+
+.app-img {
+width: 3.5rem;
+height: 3.5rem;
+border-radius: 6px;
+margin: 0.75rem 0 0.75rem 0.75rem;
+}
+
+.app-name {
+	font-weight: 500;
+	margin-top: 1rem;
+	margin-left: 2rem;
+}
+
+.chevron {
+	margin-left: auto;
+	margin-right: 1rem; 
+}
+
+/* Hosts */
+
+.host {
+	height: 5rem;
+	border-radius: 12px;
+	display: flex;
+	align-items: center;
+	margin-top: 0.5rem;
+	transition: 0.25s;
+}
+
+.host:hover {
+	background: #E4E7E9;
+	cursor: pointer;
+	transition: 0.25s;
+}
+
+.host-img {
+width: 3.5rem;
+height: 3.5rem;
+border-radius: 50%;
+margin: 0.75rem 0 0.75rem 0.75rem;
+}
+
+.host-info {
+	margin-left: 2rem;
+}
+
+.host-name {
+	font-weight: 500;
+	line-height: 100%;
+	display: block;
+	margin-top: 1rem;
+	margin-bottom: 0rem;
+}
+
+.host-twitter {
+	font-weight: 400;
+	line-height: 100%;
+	margin-top: 0.5rem;
+	margin-bottom: 1rem;
+}
+
+/* Community */
+
+.cmmunity {
+	display: flex;
+	border-radius: 12px;
+	align-items: center;
+	margin-top: 0.5rem;
+	transition: 0.25s;
+}
+
+.cmmunity:hover {
+	background: #E4E7E9;
+	cursor: pointer;
+	transition: 0.25s;
+}
+
+.cmmunity-img {
+	width: 3.5rem;
+	height: 3.5rem;
+	border-radius: 6px;
+	margin: 0.75rem 0 0.75rem 0.75rem;
+}
+
+.cmmunity-name {
+	font-weight: 500;
+	margin-top: 1rem;
+	margin-left: 2rem;
+}
+
+/* Main content */
+
+.main {
+	margin-top: 6rem;
+}
+
+/* Podcast info */
+.main .tag {
+	font-variant: small-caps;
+	font-weight: 500;
+	margin-top: 0;
+	margin-bottom: 0.5rem;
+}
+
+.main .social-media {
+	margin-top: 1rem;
+}
+
+.main .link-button {
+	width: 12rem;
+	height: 4rem;
+	border-radius: 12px;
+	margin-right: 1.25rem;
+	margin-top: 1rem;
+	padding-top: 1rem;
+}
+
+.facebook-link {
+	background: #3A5998;
+}
+
+.twitter-link {
+	background: #01ACED;
+}
+
+.podlink-link {
+	background: #296DEE;
+}
+
+.social-media-font {
+	font-weight: 500;
+	line-height: normal;
+	text-align: center;
+	text-transform: capitalize;
+	color: #F9FAFA;
+}
+
+.block {
+	display: inline-block;
+}
+
+/* Episode */
+audio {
+	width: 100%;
+}
+
+.episode {
+	margin-top: 3rem;
+	margin-bottom: 5rem;
+}
+
+.episode h5 {
+	font-weight: 500;
+	margin-bottom: 0.5rem;
+}
+.episode h2 {
+	font-weight: 600;
+	line-height: 120%;
+	margin-bottom: 1.5rem;
+}
+
+.episode p {
+	line-height: 160%;
+	margin-bottom: 1.5rem;
 }

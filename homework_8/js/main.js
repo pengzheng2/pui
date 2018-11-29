@@ -1,3 +1,5 @@
+// Index page JS
+
 // Get data from a JSON file
 var ourRequest = new XMLHttpRequest();
 ourRequest.open('GET', 'https://api.jsonbin.io/b/5bfd1a2799d3ae655491857b/1');
@@ -82,3 +84,8 @@ $(document).ready(function() {
 // Reveal animation
     ScrollReveal().clean('h1');
     ScrollReveal().reveal('.subtitle', { cleanup: true });
+
+
+// Subpage JS
+
+

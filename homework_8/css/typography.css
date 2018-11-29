@@ -21,7 +21,7 @@ body {
 
   --font-size-zeta: 18px; 
   --line-height-zeta: 100%x;
-  --letter-spacing-zeta: 0.03em;
+  --letter-spacing-zeta: 0.02em;
 
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: var(--font-size-delta);
@@ -77,7 +77,7 @@ h3 {
   font-size: var(--font-size-gamma);
   line-height: var(--line-height-gamma);
   letter-spacing: var(--letter-spacing-gamma);
-  font-weight: 700;
+  font-weight: 600;
   color: var(--color-gray-400);
   margin-bottom: 1.5rem;
 }
@@ -88,8 +88,8 @@ h4 {
   line-height: var(--line-height-epsilon);
   letter-spacing: var(--letter-spacing-epsilon);
   font-weight: 600;
-  text-transform: capitalize;
   color: var(--color-gray-400);
+  text-transform: capitalize;
 }
 
 /* Tags */
@@ -153,4 +153,11 @@ p {
   max-width: 46.25rem;
 }
 
+a {
+  color: inherit;
+}
 
+a:hover {
+  text-decoration: none;
+  color: var(--color-gray-900);
+}
