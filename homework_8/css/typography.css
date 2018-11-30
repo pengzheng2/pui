@@ -21,7 +21,7 @@ body {
 
   --font-size-zeta: 18px; 
   --line-height-zeta: 100%x;
-  --letter-spacing-zeta: 0.02em;
+  --letter-spacing-zeta: 0.01em;
 
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: var(--font-size-delta);

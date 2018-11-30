@@ -2,16 +2,16 @@
 
 // Get data from a JSON file
 var ourRequest = new XMLHttpRequest();
-ourRequest.open('GET', 'https://api.jsonbin.io/b/5bfd1a2799d3ae655491857b/1');
+ourRequest.open('GET', 'https://api.jsonbin.io/b/5bfd1a2799d3ae655491857b/15');
 ourRequest.onload = function() {
   if (ourRequest.status >= 200 && ourRequest.status < 400) {
     // This is where we'll do something with the retrieved data
     var data = JSON.parse(ourRequest.responseText);
-    createHTML(data);
+    createHTML(data, "podcastsTemplate", "podcasts-container");
+    // Scroll reveal
     ScrollReveal().reveal('h1', { duration: 3000 });
     ScrollReveal().reveal('.subtitle', { delay: 500 });
     ScrollReveal().reveal('.subtitle', { duration: 3000 });
-
     ScrollReveal().reveal('.podcast', { delay: 0 });
     ScrollReveal().reveal('.podcast', { duration: 1000 });
     ScrollReveal().reveal('.podcast', { distance: '2rem' });
@@ -23,22 +23,23 @@ ourRequest.onload = function() {
   }
 };
 
+// Error handling
 ourRequest.onerror = function() {
   console.log("Connection error");
 };
-
 ourRequest.send();
 
-function createHTML(podcastsData) {
-  var rawTemplate = document.getElementById("podcastsTemplate").innerHTML;
+// Create HTML
+function createHTML(data, templateID, containerID) {
+  var rawTemplate = document.getElementById(templateID).innerHTML;
   var compiledTemplate = Handlebars.compile(rawTemplate);
-  var ourGeneratedHTML = compiledTemplate(podcastsData);
-
-  var podcastsContainer = document.getElementById("podcasts-container");
+  var ourGeneratedHTML = compiledTemplate(data);
+  var podcastsContainer = document.getElementById(containerID);
   podcastsContainer.innerHTML = ourGeneratedHTML;
 }
 
 $(document).ready(function() {
+  // Develop toggle
   $('#develop').click(function() {
     $(this).css('color', 'var(--color-gray-900)');
     $(this).css('transition', 'color .5s');
@@ -48,17 +49,17 @@ $(document).ready(function() {
     $('.toggle').css('left', '11.7rem');
     $('.toggle').css('transition', 'left .3s');
     developSelection = true;
-    function recreateHTML(podcastsData) {
-      var rawTemplate = document.getElementById("developPodcastsTemplate").innerHTML;
-      var compiledTemplate = Handlebars.compile(rawTemplate);
-      var ourGeneratedHTML = compiledTemplate(podcastsData);
-      var podcastsContainer = document.getElementById("podcasts-container");
-      podcastsContainer.innerHTML = ourGeneratedHTML;
-    }
+    // Handlebar JS
     var data = JSON.parse(ourRequest.responseText);
-    recreateHTML(data);
-    ScrollReveal().reveal('.podcast', { duration: 2000 });
+    createHTML(data, "developPodcastsTemplate", "podcasts-container");
+    // Scroll Reveal
+    ScrollReveal().reveal('.podcast', { delay: 0 });
+    ScrollReveal().reveal('.podcast', { duration: 1000 });
+    ScrollReveal().reveal('.podcast', { distance: '2rem' });
+    ScrollReveal().reveal('.podcast', { interval: 200 });
+    ScrollReveal().reveal('.podcast', { easing: 'cubic-bezier(0.5, 0, .56, .95)' });
   });
+    // Design toggle
     $('#design').click(function() {
     $(this).css('color', 'var(--color-gray-900)');
     $(this).css('transition', 'color .5s');
@@ -68,24 +69,14 @@ $(document).ready(function() {
     $('.toggle').css('left', '.5rem');
     $('.toggle').css('transition', 'left .3s');
     designSelection = true;
-    function recreateHTML(podcastsData) {
-      var rawTemplate = document.getElementById("designPodcastsTemplate").innerHTML;
-      var compiledTemplate = Handlebars.compile(rawTemplate);
-      var ourGeneratedHTML = compiledTemplate(podcastsData);
-      var podcastsContainer = document.getElementById("podcasts-container");
-      podcastsContainer.innerHTML = ourGeneratedHTML;
-    }
+    // Handlebar JS
     var data = JSON.parse(ourRequest.responseText);
-    recreateHTML(data);
-    ScrollReveal().reveal('.podcast', { duration: 2000 });
+    createHTML(data, "designPodcastsTemplate", "podcasts-container");
+    // Scroll Reveal
+    ScrollReveal().reveal('.podcast', { delay: 0 });
+    ScrollReveal().reveal('.podcast', { duration: 1000 });
+    ScrollReveal().reveal('.podcast', { distance: '2rem' });
+    ScrollReveal().reveal('.podcast', { interval: 200 });
+    ScrollReveal().reveal('.podcast', { easing: 'cubic-bezier(0.5, 0, .56, .95)' });
   });
 });
-
-// Reveal animation
-    ScrollReveal().clean('h1');
-    ScrollReveal().reveal('.subtitle', { cleanup: true });
-
-
-// Subpage JS
-
-
